@@ -22,6 +22,8 @@ const ROLL_NUMBER_PATTERNS: RegExp[] = [
 
   // 23L35A4301 -> 23L35A4309
   /^23L35A43(0[1-9])$/,
+
+  /^\d{2}L\d{2}A\d{2}[A-Z0-9]{2,4}$/i
 ];
 
 /**
