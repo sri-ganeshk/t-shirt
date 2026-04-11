@@ -23,7 +23,11 @@ const ROLL_NUMBER_PATTERNS: RegExp[] = [
   // 23L35A4301 -> 23L35A4309
   /^23L35A43(0[1-9])$/,
 
-  /^\d{2}L\d{2}A\d{2}[A-Z0-9]{2,4}$/i
+  // 22L31A4602 -> 22L31A4654
+  /^22L31A46(0[2-9]|[1-4]\d|5[0-4])$/,
+
+  // 23L35A4601 -> 23L35A4606
+  /^23L35A46(0[1-6])$/,
 ];
 
 /**
@@ -71,6 +75,14 @@ export function generateValidRollNumbers(): string[] {
   // 23L35A4301 -> 23L35A4309
   for (let i = 1; i <= 9; i += 1)
     rollNumbers.push(`23L35A43${String(i).padStart(2, "0")}`);
+
+  // 22L31A4602 -> 22L31A4654
+  for (let i = 2; i <= 54; i += 1)
+    rollNumbers.push(`22L31A46${String(i).padStart(2, "0")}`);
+
+  // 23L35A4601 -> 23L35A4606
+  for (let i = 1; i <= 6; i += 1)
+    rollNumbers.push(`23L35A46${String(i).padStart(2, "0")}`);
 
   return rollNumbers;
 }
